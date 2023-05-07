@@ -19,6 +19,8 @@ sudo apt install gimp -y
 echo -e "\v ---Installing wget---\v"
 sudo apt install software-properties-common apt-transport-https wget
 
+#sudo apt-get install clang cmake ninja-build pkg-config libgtk-3-dev liblzma-dev
+
 echo -e "\v ---Installing curl---\v"
 sudo apt install curl
 
@@ -39,6 +41,8 @@ sudo apt install thunderbird
 
 echo -e "\v ---Installing htop---\v"
 sudo apt install htop
+
+#bleachbit
 
 #echo -e "\v ---Installing discord---\v"
 #wget https://discord.com/api/download?platform=linux&format=deb
