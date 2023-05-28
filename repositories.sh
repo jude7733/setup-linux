@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 echo -e "\v ---adding multiverse---\v"
 sudo add-apt-repository multiverse

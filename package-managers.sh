@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 sudo apt install flatpak
 sudo apt install gnome-software-plugin-flatpak

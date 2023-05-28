@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 echo -e "\v ---Installing neofetch---\v"
 sudo apt install neofetch
