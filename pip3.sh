@@ -2,10 +2,10 @@
 
 python3 -m pip install --upgrade pip
 
-pip3 install Jupyter
-pip3 install numpy
-pip3 install pandas
-pip3 install matplotlib
-pip3 install seaborn
-pip3 install scikit-learn
-pip3 install tk
+pip install Jupyter
+pip install numpy
+pip install pandas
+pip install matplotlib
+pip install seaborn
+pip install scikit-learn
+pip install tk
