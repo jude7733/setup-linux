@@ -2,7 +2,7 @@
 
 echo -e "\v ---This script is for apt only---\v"
 
-softwares=("neofetch" "gdebi" "vlc" "libreoffice" "gimp" "software-properties-common" "apt-transport-https" "wget" "curl" "python3" "python3-pip" "pipenv" "thunderbird" "htop" "spotify-client" "code" "kodi" "timeshift" "telegram-desktop")
+softwares=("neofetch" "gdebi" "vlc" "libreoffice" "software-properties-common" "apt-transport-https" "wget" "curl" "thunderbird" "htop" "spotify-client" "kodi" "timeshift" "telegram-desktop" "bleachbit")
 
 for i in "${softwares[@]}"; do
     read -p "Do you wanna install $i? [y/n]: " choice
@@ -15,13 +15,6 @@ for i in "${softwares[@]}"; do
             echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
             sudo apt-get update
             sudo apt-get install $i
-            ;;
-        code)
-            wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
-            sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
-            sudo apt update
-            echo -e "\v ---Installing $i---\v"
-            sudo apt install $i
             ;;
         kodi)
             sudo add-apt-repository ppa:team-xbmc/ppa
@@ -37,12 +30,6 @@ for i in "${softwares[@]}"; do
             ;;
         libreoffice)
             sudo add-apt-repository ppa:libreoffice
-            sudo apt update
-            echo -e "\v ---Installing $i---\v"
-            sudo apt install $i
-            ;;
-        gimp)
-            sudo add-apt-repository ppa:otto-kesselgulasch/gimp
             sudo apt update
             echo -e "\v ---Installing $i---\v"
             sudo apt install $i
