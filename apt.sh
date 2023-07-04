@@ -14,39 +14,38 @@ for i in "${softwares[@]}"; do
             curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | sudo apt-key add -
             echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
             sudo apt-get update
-            sudo apt-get install spotify-client
+            sudo apt-get install $i
             ;;
         code)
             wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
             sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
             sudo apt update
             echo -e "\v ---Installing $i---\v"
-            sudo apt install code
+            sudo apt install $i
             ;;
         kodi)
-            sudo apt install software-properties-common
             sudo add-apt-repository ppa:team-xbmc/ppa
             sudo apt update
             echo -e "\v ---Installing $i---\v"
-            sudo apt install kodi
+            sudo apt install $i
             ;;
         timeshift)
             sudo add-apt-repository -y ppa:teejee2008/timeshift
             sudo apt update
             echo -e "\v ---Installing $i---\v"
-            sudo apt install timeshift
+            sudo apt install $i
             ;;
         libreoffice)
             sudo add-apt-repository ppa:libreoffice
             sudo apt update
             echo -e "\v ---Installing $i---\v"
-            sudo apt install libreoffice
+            sudo apt install $i
             ;;
         gimp)
             sudo add-apt-repository ppa:otto-kesselgulasch/gimp
             sudo apt update
             echo -e "\v ---Installing $i---\v"
-            sudo apt install gimp
+            sudo apt install $i
             ;;
         *)
             echo -e "\v ---Installing $i---\v"

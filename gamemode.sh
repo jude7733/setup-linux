@@ -4,7 +4,7 @@
 sudo dpkg --add-architecture i386
 sudo add-apt-repository multiverse
 
-gameTools=("wine" "steam" "lutris" "playonlinux")
+gameTools=("wine" "steam" "lutris" "playonlinux" "heroicgameslauncher")
 for i in "${gameTools[@]}"; do
     read -p "Do you wanna install $i? [y/n]: " choice
     case $choice in
@@ -24,6 +24,10 @@ for i in "${gameTools[@]}"; do
             echo -e "\v ---Installing $i---\v"
             sudo apt install lutris
             ;;
+        heroicgameslauncher)
+            flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+            flatpak install flathub com.heroicgameslauncher.hgl
+            ;;
         *)
             echo -e "\v ---Installing $i---\v"
             sudo apt install $i
@@ -34,10 +38,7 @@ for i in "${gameTools[@]}"; do
         echo -e "\v ---Skipping $i---\v"
         ;;
     *)
-        echo "oh come on, just say y or n, it's not that hard"
+        echo "Do you wanna play or not?, just say y or n"
         ;;
     esac
 done
-#wget https://github.com/Heroic-Games-Launcher/HeroicGamesLauncher/releases/download/v2.5.2/heroic_2.5.2_amd64.deb
-#sudo apt install ./heroic_2.5.2_amd64.deb
-#flatpak install flathub com.heroicgameslauncher.hgl
