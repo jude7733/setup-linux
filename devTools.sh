@@ -50,7 +50,6 @@ for i in "${devTools[@]}"; do
             curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash - &&\
             echo -e "\v ---Installing $i---\v"
             sudo apt install -y $i
-            sudo apt install npm
             ;;
         gimp)
             sudo add-apt-repository ppa:otto-kesselgulasch/gimp
