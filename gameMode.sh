@@ -4,7 +4,7 @@
 sudo dpkg --add-architecture i386
 sudo add-apt-repository multiverse
 
-gameTools=("wine" "steam" "lutris" "playonlinux" "heroicgameslauncher")
+gameTools=("wine" "steam" "lutris" "playonlinux" "heroicgameslauncher" "discord")
 for i in "${gameTools[@]}"; do
     read -p "Do you wanna install $i? [y/n]: " choice
     case $choice in
@@ -27,6 +27,13 @@ for i in "${gameTools[@]}"; do
         heroicgameslauncher)
             flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
             flatpak install flathub com.heroicgameslauncher.hgl
+            ;;
+        discord)
+            wget https://discord.com/api/download?platform=linux &
+            format=deb
+            echo -e "\v ---Installing $i---\v"
+            sudo dpkg -i discord-0.0.13.deb
+            # sudo snap install discord
             ;;
         *)
             echo -e "\v ---Installing $i---\v"

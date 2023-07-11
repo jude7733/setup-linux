@@ -2,7 +2,7 @@
 
 echo -e "\v ---This script is for apt only---\v"
 
-softwares=("neofetch" "gdebi" "vlc" "libreoffice" "software-properties-common" "apt-transport-https" "wget" "curl" "thunderbird" "htop" "spotify-client" "kodi" "timeshift" "telegram-desktop" "bleachbit")
+softwares=("neofetch" "gnome-tweaks" "gdebi" "vlc" "libreoffice" "software-properties-common" "apt-transport-https" "wget" "curl" "thunderbird" "htop" "spotube" "spotify-client" "kodi" "timeshift" "telegram-desktop" "bleachbit")
 
 for i in "${softwares[@]}"; do
     read -p "Do you wanna install $i? [y/n]: " choice
@@ -48,4 +48,7 @@ for i in "${softwares[@]}"; do
         ;;
     esac
 done
-neofetch
+
+if which neofetch > /dev/null; then
+    neofetch
+fi
