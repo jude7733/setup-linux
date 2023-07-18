@@ -57,6 +57,7 @@ for i in "${devTools[@]}"; do
             wget https://release.gitkraken.com/linux/gitkraken-amd64.deb
             echo -e "\v ---Installing $i---\v"
             sudo apt install ./gitkraken-amd64.deb
+            rm gitkraken-amd64.deb
             ;;
         postman)
             sudo snap install postman
