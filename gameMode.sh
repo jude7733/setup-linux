@@ -1,9 +1,5 @@
 #!/bin/bash
 
-#add 32 bit architecture
-sudo dpkg --add-architecture i386
-sudo add-apt-repository multiverse
-
 gameTools=("wine" "steam" "lutris" "playonlinux" "heroicgameslauncher" "discord")
 for i in "${gameTools[@]}"; do
     read -p "Do you wanna install $i? [y/n]: " choice
@@ -17,6 +13,23 @@ for i in "${gameTools[@]}"; do
             sudo apt update
             sudo apt install --install-recommends winehq-stable
             wine --version
+            ;;
+        steam)
+            sudo apt install wget
+            wget http://repo.steampowered.com/steam/archive/stable/steam.gpg
+            sudo cp steam.gpg /usr/share/keyrings/
+            sudo tee /etc/apt/sources.list.d/steam-stable.list <<'EOF'
+deb [arch=amd64,i386 signed-by=/usr/share/keyrings/steam.gpg] https://repo.steampowered.com/steam/ stable steam
+deb-src [arch=amd64,i386 signed-by=/usr/share/keyrings/steam.gpg] https://repo.steampowered.com/steam/ stable steam
+EOF
+            sudo dpkg --add-architecture i386
+            sudo apt-get update
+            sudo apt-get install \
+                libgl1-mesa-dri:amd64 \
+                libgl1-mesa-dri:i386 \
+                libgl1-mesa-glx:amd64 \
+                libgl1-mesa-glx:i386 \
+                steam-launcher
             ;;
         lutris)
             sudo add-apt-repository ppa:lutris-team/lutris

@@ -17,7 +17,7 @@ for i in "${softwares[@]}"; do
             sudo apt-get install $i
             ;;
         kodi)
-            sudo add-apt-repository ppa:team-xbmc/ppa
+            sudo add-apt-repository -y ppa:team-xbmc/ppa
             sudo apt update
             echo -e "\v ---Installing $i---\v"
             sudo apt install $i
